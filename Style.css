@@ -1,0 +1,60 @@
+:root {
+    --primary: #0056b3;
+    --primary-hover: #004494;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --danger: #dc3545;
+    --bg-color: #f4f6f9;
+    --card-bg: #ffffff;
+    --text-main: #333333;
+    --border-radius: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; padding-bottom: 20px; }
+
+.screen { padding: 20px; max-width: 600px; margin: 0 auto; }
+.hidden { display: none !important; }
+
+h1, h2 { text-align: center; margin-bottom: 20px; color: var(--primary); }
+.app-title { font-size: 24px; margin-top: 20px; }
+.subtitle { text-align: center; margin-bottom: 30px; color: var(--secondary); font-weight: 500; }
+
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-size: 14px; font-weight: 600; }
+.form-group input { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: var(--border-radius); font-size: 16px; }
+
+.gps-group, .date-time-group { display: flex; gap: 10px; align-items: center; }
+.gps-group input { flex: 1; }
+.date-time-group div { flex: 1; }
+
+.btn { width: 100%; padding: 12px; border: none; border-radius: var(--border-radius); font-size: 16px; font-weight: bold; cursor: pointer; text-align: center; margin-bottom: 10px; transition: 0.2s; }
+.btn.large { padding: 18px; font-size: 18px; }
+.btn.small { padding: 8px; font-size: 14px; }
+.btn.primary { background-color: var(--primary); color: white; }
+.btn.secondary { background-color: var(--secondary); color: white; }
+.btn.success { background-color: var(--success); color: white; }
+.btn.danger { background-color: var(--danger); color: white; }
+.btn.outline { background-color: transparent; border: 2px solid var(--primary); color: var(--primary); }
+
+.action-buttons { display: flex; gap: 10px; margin-top: 15px; }
+.mb-1 { margin-bottom: 15px; }
+.mt-1 { margin-top: 15px; }
+
+/* Camera UI */
+.camera-container { position: relative; width: 100%; background: #000; border-radius: var(--border-radius); overflow: hidden; }
+video { width: 100%; height: auto; max-height: 70vh; display: block; object-fit: cover; }
+.camera-controls { display: flex; gap: 10px; margin-top: 15px; }
+
+/* Canvas & Preview */
+.canvas-container { width: 100%; text-align: center; background: #000; border-radius: var(--border-radius); overflow: hidden;}
+canvas { max-width: 100%; height: auto; display: block; }
+details { background: #fff; padding: 10px; border-radius: var(--border-radius); border: 1px solid #ccc; margin-top: 15px; }
+summary { font-weight: bold; cursor: pointer; outline: none; }
+
+/* History */
+.history-controls { display: flex; justify-content: space-between; margin-bottom: 20px; }
+.gallery { display: grid; grid-template-columns: 1fr; gap: 15px; }
+.history-item { background: var(--card-bg); padding: 10px; border-radius: var(--border-radius); box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+.history-item img { width: 100%; border-radius: var(--border-radius); }
+.history-details { font-size: 14px; margin: 10px 0; }
