@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Visit Camera</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#0056b3">
+</head>
+<body>
+    <!-- SETUP AWAL -->
+    <section id="setup-section" class="screen hidden">
+        <h2>Pengaturan Awal</h2>
+        <div class="form-group">
+            <label>Nama Sales *</label>
+            <input type="text" id="setup-sales-name" placeholder="Masukkan nama Anda">
+        </div>
+        <div class="form-group">
+            <label>Nama Perusahaan (Opsional)</label>
+            <input type="text" id="setup-company-name" placeholder="Contoh: PT. Sinar Matahari">
+        </div>
+        <button id="btn-save-setup" class="btn primary">SIMPAN PENGATURAN</button>
+    </section>
+
+    <!-- HALAMAN UTAMA -->
+    <section id="home-section" class="screen hidden">
+        <h1 class="app-title">Sales Visit Camera</h1>
+        <p class="subtitle">Halo, <span id="display-sales-name"></span></p>
+        <button id="btn-new-visit" class="btn primary large">📸 FOTO KUNJUNGAN</button>
+        <button id="btn-history" class="btn secondary">📂 RIWAYAT FOTO</button>
+        <button id="btn-settings" class="btn outline">⚙️ PENGATURAN</button>
+    </section>
+
+    <!-- FORMULIR KUNJUNGAN -->
+    <section id="form-section" class="screen hidden">
+        <h2>Data Kunjungan</h2>
+        <div class="form-group">
+            <label>Nama Toko *</label>
+            <input type="text" id="visit-store" placeholder="Masukkan nama toko" list="store-list">
+            <datalist id="store-list"></datalist>
+        </div>
+        <div class="form-group">
+            <label>Nama Sales</label>
+            <input type="text" id="visit-sales">
+        </div>
+        <div class="form-group">
+            <label>Lokasi GPS</label>
+            <div class="gps-group">
+                <input type="text" id="visit-location" placeholder="Latitude, Longitude">
+                <button id="btn-get-location" class="btn outline small">📍 AMBIL LOKASI</button>
+            </div>
+        </div>
+        <div class="form-group date-time-group">
+            <div>
+                <label>Tanggal</label>
+                <input type="text" id="visit-date" placeholder="DD-MM-YYYY">
+            </div>
+            <div>
+                <label>Waktu</label>
+                <input type="text" id="visit-time" placeholder="HH:mm">
+            </div>
+        </div>
+        <button id="btn-reset-time" class="btn outline small mb-1">⏱ KEMBALI KE WAKTU SEKARANG</button>
+        
+        <div class="action-buttons">
+            <button id="btn-back-home" class="btn secondary">KEMBALI</button>
+            <button id="btn-to-camera" class="btn primary">LANJUT KE KAMERA</button>
+        </div>
+    </section>
+
+    <!-- KAMERA -->
+    <section id="camera-section" class="screen hidden">
+        <div class="camera-container">
+            <video id="camera-view" autoplay playsinline></video>
+        </div>
+        <div class="camera-controls">
+            <button id="btn-cancel-camera" class="btn secondary">BATAL</button>
+            <button id="btn-take-photo" class="btn primary capture-btn">📸 AMBIL FOTO</button>
+        </div>
+    </section>
+
+    <!-- PREVIEW & EDIT WATERMARK -->
+    <section id="preview-section" class="screen hidden">
+        <h2>Pratinjau Foto</h2>
+        <div class="canvas-container">
+            <canvas id="photo-canvas"></canvas>
+        </div>
+        
+        <div class="edit-watermark-accordion">
+            <details>
+                <summary>✏️ Edit Teks Watermark</summary>
+                <div class="form-group mt-1"><label>Toko:</label><input type="text" id="edit-store"></div>
+                <div class="form-group"><label>Sales:</label><input type="text" id="edit-sales"></div>
+                <div class="form-group"><label>Lokasi:</label><input type="text" id="edit-location"></div>
+                <div class="form-group"><label>Tanggal:</label><input type="text" id="edit-date"></div>
+                <div class="form-group"><label>Waktu:</label><input type="text" id="edit-time"></div>
+                <button id="btn-update-watermark" class="btn outline small">TERAPKAN PERUBAHAN</button>
+            </details>
+        </div>
+
+        <div class="action-buttons mt-1">
+            <button id="btn-retake" class="btn secondary">FOTO ULANG</button>
+            <button id="btn-save-photo" class="btn primary">💾 SIMPAN FOTO</button>
+            <button id="btn-share-photo" class="btn success">📤 BAGIKAN</button>
+        </div>
+    </section>
+
+    <!-- RIWAYAT KUNJUNGAN -->
+    <section id="history-section" class="screen hidden">
+        <h2>Riwayat Foto</h2>
+        <div class="history-controls">
+            <button id="btn-back-from-history" class="btn secondary small">KEMBALI</button>
+            <button id="btn-clear-history" class="btn danger small">HAPUS SEMUA</button>
+        </div>
+        <div id="history-gallery" class="gallery"></div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
